@@ -21,27 +21,9 @@
 </head>
 <body>
 	<h1>Book List</h1>
-	<hr>
-	<form action="${pageContext.request.contextPath}/bookSeach.do" method="post"> 
-	<!-- ${pageContext.request.contextPath} : url 맵핑을 잘해줌   -->
-	<!-- get 방식은 한글이 깨져서 들어감 나중에 필터작업함  -->
-		<table>
-			<tr>
-				<td>
-					<select name="condition">
-						<option value="title">도서제목</option>
-						<option value="publisher">출판사명</option>
-					</select>
-					<input type="text" name="keyword">
-					<input type="submit" value="검색">
-				</td>
-			</tr>
-		</table>
-	</form>
-
-	<hr>
-	<form action="deleteBook.do" method="get">
-
+	
+	<form action="deleteBook.do" method = "get">
+	
 		<table class="tableb">
 			<tr>
 				<th>BookNo</th>
@@ -50,16 +32,20 @@
 				<th>Price</th>
 				<th><input type="submit" value="삭제" onclick="return f1()"></th>
 			</tr>
+
+
 			<c:forEach var="data" items="${booklist}">
+
 				<tr>
 					<td>${ data.bookno }</td>
-					<td><a href="viewBook.do?bookno=${data.bookno}">${ data.title }</a></td>
+					<td>${ data.title }</td>
 					<td>${ data.publisher }</td>
 					<td>${ data.price }</td>
-					<td><input type="checkbox" name="bookno"
-						value=${ data.bookno }></td>
+					<td><input type="checkbox" name="bookno" value=${ data.bookno }></td>
 				</tr>
+
 			</c:forEach>
+
 		</table>
 	</form>
 	<a href="Book.jsp">등록</a>
