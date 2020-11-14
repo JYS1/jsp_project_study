@@ -17,12 +17,13 @@
 <body>
 	<%@ include file="common/header.jsp"%>
 <section>
-	<h2>Book 등록</h2>
-		<form action="addBook.do" method="post">
-			제목 : <input type="text" name="title"> <br /> 출판사 : <input
-				type="text" name="publisher"> <br /> 가격 : <input
-				type="number" name="price"> <br /> <input type="submit"
-				value="등록"> <input type="reset" value="초기화">
+	<h2>Book 수정</h2>
+		<form action="bookmodify.do" method="post">
+				제목 : <input type="text" name="title">${book.title }<br /> 
+				출판사 : <input type="text" name="publisher"> <br /> 
+				가격 : <input type="number" name="price"> <br /> 
+				<input type="submit" value="등록"> 
+				<input type="reset" value="초기화">
 
 		</form>
 

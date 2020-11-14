@@ -60,4 +60,14 @@ public class UserServiceimpl implements UserService { // impl = implements
 		return dao.userSearch(condition, keyword);
 	}
 
+	@Override
+	public UserVO login(String id, String password) {
+		return dao.login(id, password);
+	}
+
+	@Override
+	public UserVO login(UserVO vo) {
+		return dao.login(vo);
+	}
+	
 }

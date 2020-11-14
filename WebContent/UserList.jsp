@@ -11,9 +11,13 @@
 <head>
 <meta charset="UTF-8">
 <title>My User List</title>
-<link rel="stylesheet"  href="./css/my.css"> <!-- 링크 컨트롤 클릭하면 이동되면 정상적 -->
+ <!-- 링크 컨트롤 클릭하면 이동되면 정상적 -->
+<link rel="stylesheet" href="./css/my.css">
+<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+<%@ include file="common/header.jsp" %>	
+<section>
 <h1> User List </h1>
 
 <table class="tableb">
@@ -26,7 +30,6 @@
 	for(UserVO data:list) {
 	
 %>
-	
 	<tr>
 		<td><%= data.getId() %></td>
 		<td><%= data.getPassword() %></td>
@@ -37,6 +40,7 @@
 <% } %>
 
 </table>
-
+</section>
+<%@ include file="common/footer.jsp" %>	
 </body>
 </html>

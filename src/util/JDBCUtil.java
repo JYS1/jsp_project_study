@@ -16,7 +16,6 @@ public class JDBCUtil {
 		Connection conn = null;
 		
 		
-		
 		Properties p = new Properties();
 		
 		try {

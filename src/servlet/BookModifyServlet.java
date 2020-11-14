@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +12,10 @@ import service.BookService;
 import service.BookServiceimpl;
 import vo.BookVO;
 
-
-@WebServlet("/deleteBook.do")
-public class DeleteBookServlet extends HttpServlet {
+@WebServlet("/bookmodify.do")
+public class BookModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -24,28 +23,17 @@ public class DeleteBookServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
+		int bookno = Integer.parseInt(request.getParameter("bookno"));
+		
 		BookDAO_Mariadb dao = new BookDAO_Mariadb();
 		BookService service = new BookServiceimpl(dao);
+		BookVO vo =  service.getBook(bookno);
 		
+		request.setAttribute("book", vo); 
+		String page = "/BookView.jsp";
 		
-		String[] bookno = request.getParameterValues("bookno");	// 여러개 지워야 하므로 리스트로 받는다.
-		
-		for(String no :bookno) {								// 돌리기
-			service.bookDelete(Integer.parseInt(no) );
-		}
-		
-			
-		response.sendRedirect("booklist.do");
+		getServletContext().getRequestDispatcher(page).forward(request, response);
 		
 	}
 
 }
-
-
-
-
-
-
-
-
-

@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>My Book List</title>
 <link rel="stylesheet" href="./css/my.css">
+<link rel="stylesheet" href="./css/main.css">
 <!-- 링크 컨트롤 클릭하면 이동되면 정상적 -->
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- core태그 라이브러리 -->
 
-<script tpye="text/javascript">
+<script type="text/javascript">
 	function f1() {
 		return confirm("삭제 하시겠습니까?");
 	}
@@ -20,6 +21,8 @@
 
 </head>
 <body>
+<%@ include file="common/header.jsp" %>	
+<section>
 	<h1>Book List</h1>
 	
 	<form action="deleteBook.do" method = "get">
@@ -49,6 +52,8 @@
 		</table>
 	</form>
 	<a href="Book.jsp">등록</a>
+	</section>
+	<%@ include file="common/footer.jsp" %>	
 </body>
 </html>
 

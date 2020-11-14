@@ -17,7 +17,7 @@ public interface UserService {
 	
 	public List<UserVO> searchUser(String condition, String keyword);
 
+	public UserVO login(String id, String password);
 
-
-	
+	public UserVO login(UserVO vo);
 }
